@@ -651,7 +651,7 @@ function SendMessageModal({ entry, onClose, onSent }) {
   async function handleSend() {
     setSending(true);
     try {
-      const res = await fetch(`${BASE.notification}/api/notifications/send`, {
+      const res = await fetch(`${BASE.notification}/api/v1/notifications`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
