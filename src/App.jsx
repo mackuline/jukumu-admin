@@ -11,13 +11,20 @@ import { useState, useEffect } from 'react';
 
 // ─── API layer ────────────────────────────────────────────────────────────────
 const BASE = {
-  auth:         'http://localhost:9081',
-  members:      'http://localhost:9087',
-  reports:      'http://localhost:9088',
-  expense:      'http://localhost:9084',
-  income:       'http://localhost:9083',
-  notification: 'http://localhost:9085',
+  auth:         import.meta.env.VITE_AUTH_URL         || 'http://localhost:9081',
+  members:      import.meta.env.VITE_MEMBERS_URL      || 'http://localhost:9087',
+  reports:      import.meta.env.VITE_REPORTS_URL      || 'http://localhost:9088',
+  expense:      import.meta.env.VITE_EXPENSE_URL      || 'http://localhost:9084',
+  income:       import.meta.env.VITE_INCOME_URL       || 'http://localhost:9083',
+  notification: import.meta.env.VITE_NOTIFICATION_URL || 'http://localhost:9085',
 };
+  //auth:         'http://localhost:9081',
+  //members:      'http://localhost:9087',
+  //reports:      'http://localhost:9088',
+ // expense:      'http://localhost:9084',
+  //income:       'http://localhost:9083',
+  //: 'http://localhost:9085',
+//};
 
 async function apiFetch(url, opts = {}) {
   try {
